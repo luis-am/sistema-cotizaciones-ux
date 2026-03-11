@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+    />
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css"
+      rel="stylesheet"
+    />
+    <link href="../../assets/css/style.css" rel="stylesheet" />
+    <title>usuarios</title>
+  </head>
+  <body>
+    <header class="topbar">
+      <nav class="navbar navbar-expand-lg">
+        <div class="container-fluid px-4 py-2">
+          <a class="navbar-brand d-flex align-items-center" href="#"
+            ><span class="brand-logo"><i class="bi bi-calculator"></i></span>
+            Sistema de Cotizaciones</a
+          >
+          <button
+            class="navbar-toggler"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#navRole"
+          >
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navRole">
+            <ul class="nav nav-pills mx-auto my-3 my-lg-0">
+              <li class="nav-item">
+                <a class="nav-link" href="dashboard.html"
+                  ><i class="bi bi-house me-2"></i>Inicio</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link active" href="usuarios.html"
+                  ><i class="bi bi-people me-2"></i>Usuarios</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="cotizaciones.html"
+                  ><i class="bi bi-file-earmark-text me-2"></i>Cotizaciones</a
+                >
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="reportes.html"
+                  ><i class="bi bi-bar-chart me-2"></i>Reportes</a
+                >
+              </li>
+            </ul>
+            <div class="dropdown">
+              <button
+                class="user-chip border-0 bg-transparent dropdown-toggle d-flex align-items-center"
+                type="button"
+                data-bs-toggle="dropdown"
+                aria-expanded="false"
+              >
+                <span class="avatar">CA</span>
+                <div class="text-start">
+                  <div class="name">Carlos Administrador</div>
+                  <div class="email">admin@cotizaciones.com</div>
+                </div>
+              </button>
+
+              <ul class="dropdown-menu dropdown-menu-end">
+                <li>
+                  <a class="dropdown-item" href="editar-usuario.html">
+                    <i class="bi bi-person me-2"></i>Mi perfil
+                  </a>
+                </li>
+                <li><hr class="dropdown-divider" /></li>
+                <li>
+                  <a
+                    class="dropdown-item text-danger"
+                    href="#"
+                    onclick="logout()"
+                  >
+                    <i class="bi bi-box-arrow-right me-2"></i>Cerrar sesión
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </header>
+    <main class="page-shell">
+      <div class="page-header">
+        <h1 class="page-title">Gestión de Usuarios</h1>
+        <p class="page-subtitle">Administra todos los usuarios del sistema</p>
+      </div>
+      <div class="row g-4 mb-4">
+        <div class="col-md-6 col-xl-3">
+          <div class="metric-card">
+            <div class="metric-title">Total Usuarios</div>
+            <div class="metric-value">5</div>
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-3">
+          <div class="metric-card">
+            <div class="metric-title">Administradores</div>
+            <div class="metric-value">1</div>
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-3">
+          <div class="metric-card">
+            <div class="metric-title">Vendedores</div>
+            <div class="metric-value">2</div>
+          </div>
+        </div>
+        <div class="col-md-6 col-xl-3">
+          <div class="metric-card">
+            <div class="metric-title">Clientes</div>
+            <div class="metric-value">2</div>
+          </div>
+        </div>
+      </div>
+      <section class="section-card card-ui">
+        <div
+          class="d-flex justify-content-between align-items-start flex-wrap gap-3 mb-4"
+        >
+          <div>
+            <h2 class="section-title fs-2">Lista de Usuarios</h2>
+            <p class="section-subtitle">5 usuarios encontrados</p>
+          </div>
+          <div style="width: min(320px, 100%)">
+            <input class="form-control" placeholder="Buscar usuarios..." />
+          </div>
+        </div>
+        <div class="table-wrap">
+          <table class="table-ui">
+            <thead>
+              <tr>
+                <th>Usuario</th>
+                <th>Rol</th>
+                <th>Contacto</th>
+                <th>Empresa</th>
+                <th>Fecha de Registro</th>
+                <th>Estado</th>
+                <th>Acciones</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>
+                  <div class="fw-bold fs-4">Carlos Administrador</div>
+                  <div class="muted">admin@cotizaciones.com</div>
+                </td>
+                <td><span class="badge-ui badge-admin">Administrador</span></td>
+                <td>+1 (555) 100-0001</td>
+                <td>—</td>
+                <td>15/1/2024</td>
+                <td><span class="badge-ui badge-active">Activo</span></td>
+                <td>
+                  <a class="action-link" href="editar-usuario.html"
+                    ><i class="bi bi-pencil-square me-2"></i>Editar</a
+                  ><a class="action-link danger" href="#"
+                    ><i class="bi bi-trash me-2"></i>Eliminar</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="fw-bold fs-4">María Vendedora</div>
+                  <div class="muted">vendedor@cotizaciones.com</div>
+                </td>
+                <td><span class="badge-ui badge-seller">Vendedor</span></td>
+                <td>+1 (555) 200-0002</td>
+                <td>—</td>
+                <td>20/2/2024</td>
+                <td><span class="badge-ui badge-active">Activo</span></td>
+                <td>
+                  <a class="action-link" href="editar-usuario.html"
+                    ><i class="bi bi-pencil-square me-2"></i>Editar</a
+                  ><a class="action-link danger" href="#"
+                    ><i class="bi bi-trash me-2"></i>Eliminar</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="fw-bold fs-4">Juan Cliente</div>
+                  <div class="muted">cliente@empresa.com</div>
+                </td>
+                <td><span class="badge-ui badge-client">Cliente</span></td>
+                <td>+1 (555) 300-0003</td>
+                <td>Empresa Demo S.A.</td>
+                <td>10/3/2024</td>
+                <td><span class="badge-ui badge-active">Activo</span></td>
+                <td>
+                  <a class="action-link" href="editar-usuario.html"
+                    ><i class="bi bi-pencil-square me-2"></i>Editar</a
+                  ><a class="action-link danger" href="#"
+                    ><i class="bi bi-trash me-2"></i>Eliminar</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="fw-bold fs-4">Pedro Vendedor</div>
+                  <div class="muted">vendedor2@cotizaciones.com</div>
+                </td>
+                <td><span class="badge-ui badge-seller">Vendedor</span></td>
+                <td>+1 (555) 200-0004</td>
+                <td>—</td>
+                <td>25/2/2024</td>
+                <td><span class="badge-ui badge-blocked">Bloqueado</span></td>
+                <td>
+                  <a class="action-link" href="editar-usuario.html"
+                    ><i class="bi bi-pencil-square me-2"></i>Editar</a
+                  ><a class="action-link danger" href="#"
+                    ><i class="bi bi-trash me-2"></i>Eliminar</a
+                  >
+                </td>
+              </tr>
+              <tr>
+                <td>
+                  <div class="fw-bold fs-4">Ana Martínez</div>
+                  <div class="muted">cliente2@empresa.com</div>
+                </td>
+                <td><span class="badge-ui badge-client">Cliente</span></td>
+                <td>+1 (555) 300-0005</td>
+                <td>Tech Solutions Inc.</td>
+                <td>15/3/2024</td>
+                <td><span class="badge-ui badge-active">Activo</span></td>
+                <td>
+                  <a class="action-link" href="editar-usuario.html"
+                    ><i class="bi bi-pencil-square me-2"></i>Editar</a
+                  ><a class="action-link danger" href="#"
+                    ><i class="bi bi-trash me-2"></i>Eliminar</a
+                  >
+                </td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </section>
+    </main>
+    <a class="help-fab" href="#"><i class="bi bi-question-lg"></i></a>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="../../assets/js/main.js"></script>
+    <script src="../../assets/js/quote-builder.js"></script>
+  </body>
+</html>
